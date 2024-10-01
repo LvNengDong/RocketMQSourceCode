@@ -1362,7 +1362,7 @@ public class MQClientAPIImpl {
 
         RemotingCommand request = RemotingCommand.createRequestCommand(RequestCode.GET_ROUTEINFO_BY_TOPIC, requestHeader);
 
-        RemotingCommand response = this.remotingClient.invokeSync(null, request, timeoutMillis);
+        RemotingCommand response = this.remotingClient.invokeSync("127.0.0.1:9876", request, timeoutMillis);
         assert response != null;
         switch (response.getCode()) {
             case ResponseCode.TOPIC_NOT_EXIST: {
